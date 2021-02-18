@@ -36,7 +36,11 @@ io.on('connection', function (socket) {
 
     // ajout emoji
     if (messageData.message) {
-      messageData.message = messageData.message.replace(/:\)/, "\u263A").replace(/:\(/, "\u2639").replace(/:p/, "\uD83D\uDE1B");
+      messageData.message = messageData.message
+        .replace(/:\)/, "\u263A")
+        .replace(/:\(/, "\u2639")
+        .replace(/:p/, "\uD83D\uDE1B")
+        .replace(/fuck|putain/ig, "\u2022\u2022\u2022")
     }
     io.emit('sendMessageToAll', messageData);
   })
