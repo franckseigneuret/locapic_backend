@@ -1,2 +1,3 @@
 # locapic_backend
-associé au repo locapic !!!
+ce repo est uniquement le backend
+Il doit être associé au repo frontend locapic https://github.com/franckseigneuret/locapic
