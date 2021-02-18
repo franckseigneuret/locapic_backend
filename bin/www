@@ -29,8 +29,12 @@ var io = require('socket.io')(server);
 /**
  * Mise en écoute de l'événement “connection”
  */
-io.on('connection', function(socket){
- console.log('a user connected');
+io.on('connection', function (socket) {
+  console.log('a user connected');
+
+  socket.on('sendMessage', function (message) {
+    io.emit('sendMessageToAll', message);
+  })
 });
 
 /**
