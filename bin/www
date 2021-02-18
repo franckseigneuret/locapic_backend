@@ -32,8 +32,13 @@ var io = require('socket.io')(server);
 io.on('connection', function (socket) {
   console.log('a user connected');
 
-  socket.on('sendMessage', function (message) {
-    io.emit('sendMessageToAll', message);
+  socket.on('sendMessage', function (messageData) {
+
+    // ajout emoji
+    if (messageData.message) {
+      messageData.message = messageData.message.replace(/:\)/, "\u263A").replace(/:\(/, "\u2639").replace(/:p/, "\uD83D\uDE1B");
+    }
+    io.emit('sendMessageToAll', messageData);
   })
 });
 
